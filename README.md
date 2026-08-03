@@ -12,5 +12,5 @@ Created a new repository [cpp-basics-hw-otus](https://github.com/elbuscadordea/c
 
 Two repositories are created : test1 and test2 :
 - **test1** contains the most of the text of the section Home work #1.
-- **test2** *TODO*
+- **test2** contains .gitignore file considered for C++ projects and the .idea/ directory for CLion also is added to it. The .gitignore file was taked from [GitHub.com C++ ignore page](https://github.com/github/gitignore/blob/main/C%2B%2B.gitignore).
 
