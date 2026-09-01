@@ -30,6 +30,11 @@ int main(int argc, char const *argv[]) {
         return -1;
     }
 
+    if (settings.printRecordsTable) {
+        records_table::printRecordsTable();
+        return 0;
+    }
+
     printGameHeader();
 
     if (settings.playerName.empty()) {
@@ -67,7 +72,7 @@ int main(int argc, char const *argv[]) {
         } else if (guess < secretNumber) {
             std::cout << "Less than." << std::endl;
         } else {
-            std::cout << "You win! Attempts:" << triesNumber << std::endl;
+            std::cout << "You win! Attempts: " << triesNumber << std::endl;
             stopGame = true;
         }
 
@@ -122,6 +127,9 @@ void parseArgumentsToSetting(int argc, char const *argv[], Settings& settings) {
         } else if (paramName == "-u") {
             settings.playerName = getStringArgValue(i, argc, argv, paramName);
             i+= 2;
+        } else if (paramName == "-table") {
+            settings.printRecordsTable = true;
+            i++;
         } else {
             i++;
         }

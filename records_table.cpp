@@ -6,18 +6,19 @@
 
 #include <fstream>
 #include <iostream>
-#include <stdexcept>
+#include <filesystem>
+
+namespace fs = std::filesystem;
 
 namespace records_table {
     const std::string RECORDS_FILE_NAME{"high_scores.txt"};
-
 
     int updateRecordsTable(const std::string& playerName, const int triesNumber) {
         {
             std::ofstream outFile = std::ofstream{RECORDS_FILE_NAME, std::ios::app};
             if (!outFile.is_open()) {
                 std::cout << "Unable to open file for writing!" << std::endl;
-                return records_table::OPEN_RECORDS_TABLE_FAILED;
+                return OPEN_RECORDS_TABLE_FAILED;
             }
 
             outFile << playerName << ' ' << triesNumber << std::endl;
@@ -27,6 +28,11 @@ namespace records_table {
 
     void printRecordsTable() {
         {
+            if (!fs::exists(RECORDS_FILE_NAME)) {
+                std::cout << "No records in table." << std::endl;
+                return;
+            }
+
             std::ifstream inFile{RECORDS_FILE_NAME};
             if (!inFile.is_open()) {
                 std::cout << "Failed to open records file";
@@ -45,7 +51,7 @@ namespace records_table {
                         std::string score_str = currentRecord.substr(lastPosition + 1);
                         score = std::stoi(score_str);
                         std::cout << playerName << '\t' << score  << std::endl;
-                    } catch (const std::exception& e) {
+                    } catch (const std::exception&) {
                         std::cout << playerName << "No score" << std::endl;
                     }
 

@@ -16,4 +16,8 @@ add_executable(guess_number guess-number.cpp
         settings.cpp
         settings.h)
 
-set(CMAKE_CXX_STANDARD 17)
+set_target_properties(guess_number PROPERTIES
+        CXX_STANDARD 17
+        CXX_STANDARD_REQUIRED ON
+)
+
