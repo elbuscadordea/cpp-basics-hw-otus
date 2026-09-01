@@ -12,6 +12,8 @@ add_executable(guess_number guess-number.cpp
         randomizer.h
         randomizer.cpp
         records_table.cpp
-        records_table.h)
+        records_table.h
+        settings.cpp
+        settings.h)
 
 set(CMAKE_CXX_STANDARD 17)
