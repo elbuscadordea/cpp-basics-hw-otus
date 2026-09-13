@@ -12,4 +12,19 @@ public:
     Point getCenter() const;
     double getRadius() const;
     double getMass() const;
+
+    Ball();
+    Ball(
+        const Point& center,
+        double radius,
+        Velocity velocity, const Color& color,
+        bool isCollidable = false
+        );
+
+private:
+    Point center_;
+    Velocity velocity_;
+    double radius_;
+    bool isCollidable_;
+    Color color_;
 };

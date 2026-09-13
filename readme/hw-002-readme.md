@@ -1,4 +1,4 @@
-# Home work #2 : Development Environment setup and the first C++ practice
+# Homework #2 : Development Environment setup and the first C++ practice
 ## Objectives 
 - Install C++ dev. environment: IDE, Compiler and CMake.
 - C++ practice: move out the function from the main.cpp to a separated files using #include.

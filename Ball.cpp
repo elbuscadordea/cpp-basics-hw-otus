@@ -6,15 +6,14 @@
  * @param velocity новое значение скорости
  */
 void Ball::setVelocity(const Velocity& velocity) {
-    // TODO: место для доработки
+    velocity_ = velocity;
 }
 
 /**
  * @return скорость объекта
  */
 Velocity Ball::getVelocity() const {
-    // TODO: место для доработки
-    return {};
+    return velocity_;
 }
 
 /**
@@ -26,7 +25,7 @@ Velocity Ball::getVelocity() const {
  * @param painter контекст отрисовки
  */
 void Ball::draw(Painter& painter) const {
-    // TODO: место для доработки
+    painter.draw(center_, radius_, color_);
 }
 
 /**
@@ -34,15 +33,14 @@ void Ball::draw(Painter& painter) const {
  * @param center новый центр объекта
  */
 void Ball::setCenter(const Point& center) {
-    // TODO: место для доработки
+    center_ = center;
 }
 
 /**
  * @return центр объекта
  */
 Point Ball::getCenter() const {
-    // TODO: место для доработки
-    return {};
+    return center_;
 }
 
 /**
@@ -51,8 +49,7 @@ Point Ball::getCenter() const {
  * не требуется
  */
 double Ball::getRadius() const {
-    // TODO: место для доработки
-    return {};
+    return radius_;
 }
 
 /**
@@ -63,6 +60,13 @@ double Ball::getRadius() const {
  * эквивалентна объему: PI * radius^3 * 4. / 3.
  */
 double Ball::getMass() const {
-    // TODO: место для доработки
-    return {};
+    return M_PI * radius_ * radius_ * radius_ * 4.0 / 3.0;;
 }
+
+// CONSTRUCTORS
+Ball::Ball()
+    : center_{0., 0.}, velocity_{Point{0.0, 0.0}}, radius_{0.0}, isCollidable_(true), color_{0.0, 0.0, 0.0} {}
+
+Ball::Ball(const Point& center, const double radius,
+           const Velocity velocity, const Color& color, const bool isCollidable)
+    : center_(center), velocity_(velocity), radius_(radius), isCollidable_(isCollidable), color_(color) { }
