@@ -17,3 +17,14 @@
 1. The constructor of the class `World` was modified to read the information about balls from the file, create ball objects and put them to the vector of the class `World`.
 
 The resulting git branch is [otus/HW-04-physics-main-problem](https://github.com/elbuscadordea/cpp-basics-hw-otus/tree/otus/HW-04-physics-main-problem).
+
+### 2. Additional Task: Refactoring
+**Task** :  Refactor code to directly read data from file into `Point` and `Color` objects.
+
+**Implementation**
+1. Add overloading of the operator >> for the `Point` class to the `Point.hpp`.
+1. Add overloading of the operator >> for the `Color` class:
+    1. Add member function `setRGB()` to the `Color` class permitting modification of gte RGB values.
+    1. Add overloading of the operator >> for the `Color` class to read data from a file stream.
+
+The resulting git branch is [otus/HW-04-physics-addtask1-refactoring](https://github.com/elbuscadordea/cpp-basics-hw-otus/tree/otus/HW-04-physics-addtask1-refactoring)
