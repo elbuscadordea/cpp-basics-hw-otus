@@ -16,4 +16,4 @@
 1. Implemented the member functions of the class `Ball`.
 1. The constructor of the class `World` was modified to read the information about balls from the file, create ball objects and put them to the vector of the class `World`.
 
-The resulting git branch is [otus/HW-04-physics-main-problem](https://github.com/elbuscadordea/cpp-basics-hw-otus/tree/otus/HW-04-physics-main-problem).
+The resulting git branch is [otus/HW-04/HW-04-physics-main-problem](https://github.com/elbuscadordea/cpp-basics-hw-otus/tree/otus/HW-04/HW-04-physics-main-problem).
