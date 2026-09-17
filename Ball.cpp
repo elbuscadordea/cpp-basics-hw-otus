@@ -60,7 +60,15 @@ double Ball::getRadius() const {
  * эквивалентна объему: PI * radius^3 * 4. / 3.
  */
 double Ball::getMass() const {
-    return M_PI * radius_ * radius_ * radius_ * 4.0 / 3.0;;
+    return M_PI * radius_ * radius_ * radius_ * 4.0 / 3.0;
+}
+
+/**
+ * @brief Возвращает признак является ли шар соударяющимся.
+ * @return true - шар является соударяющимся, false - шар является не соударяющимся.
+ */
+bool Ball::isCollidable() const {
+    return isCollidable_;
 }
 
 // CONSTRUCTORS
