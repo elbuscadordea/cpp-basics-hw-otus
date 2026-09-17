@@ -28,3 +28,14 @@ The resulting git branch is [otus/HW-04/HW-04-physics-main-problem](https://gith
     1. Add overloading of the operator >> for the `Color` class to read data from a file stream.
 
 The resulting git branch is [otus/HW-04/HW-04-physics-addtask1-refactoring](https://github.com/elbuscadordea/cpp-basics-hw-otus/tree/otus/HW-04/HW-04-physics-addtask1-refactoring)
+
+### 3. Additional Task: Ghost Balls
+**Task** :  Modify the code to process collision with objects only for collidable balls.
+
+**Implementation**
+1. `isCollidable()` member function is added to the class `Ball`. It returns true if a ball is collidable. Otherwise, it returns false.
+1. Added the verification if balls `a` and `b` are collidable into the member function `collideBalls()` of the class `Physics`.
+1. Added the verification if a given ball is collidable into the member function `collideWithBox()` of the class `Physics`.
+
+The resulting git branch is [otus/HW-04/HW-04-physics-addtask2-ghost-balls](https://github.com/elbuscadordea/cpp-basics-hw-otus/tree/otus/HW-04/HW-04-physics-addtask2-ghost-balls)
+
