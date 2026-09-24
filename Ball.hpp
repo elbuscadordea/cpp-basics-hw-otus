@@ -18,7 +18,7 @@ public:
     Ball(
         const Point& center,
         double radius,
-        Velocity velocity, const Color& color,
+        const Velocity& velocity, const Color& color,
         bool isCollidable = false
         );
 

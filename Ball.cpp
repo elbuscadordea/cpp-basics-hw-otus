@@ -76,5 +76,5 @@ Ball::Ball()
     : center_{0., 0.}, velocity_{Point{0.0, 0.0}}, radius_{0.0}, isCollidable_(true), color_{0.0, 0.0, 0.0} {}
 
 Ball::Ball(const Point& center, const double radius,
-           const Velocity velocity, const Color& color, const bool isCollidable)
+           const Velocity& velocity, const Color& color, const bool isCollidable)
     : center_(center), velocity_(velocity), radius_(radius), isCollidable_(isCollidable), color_(color) { }
