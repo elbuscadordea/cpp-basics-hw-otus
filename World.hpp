@@ -1,5 +1,6 @@
 #pragma once
 #include "Ball.hpp"
+#include "Duster.h"
 #include "Physics.hpp"
 #include <string>
 #include <vector>
@@ -23,4 +24,6 @@ class World {
     // Длина отрезка времени, который не был
     // учтен при прошлой симуляции. См. реализацию update
     double restTime = 0.;
+
+    Duster duster;
 };

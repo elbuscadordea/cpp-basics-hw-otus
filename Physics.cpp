@@ -1,5 +1,7 @@
 #include "Physics.hpp"
 
+#include "Duster.h"
+
 double dot(const Point& lhs, const Point& rhs) {
     return lhs.x * rhs.x + lhs.y * rhs.y;
 }
@@ -11,16 +13,16 @@ void Physics::setWorldBox(const Point& topLeft, const Point& bottomRight) {
     this->bottomRight = bottomRight;
 }
 
-void Physics::update(std::vector<Ball>& balls, const size_t ticks) const {
+void Physics::update(std::vector<Ball>& balls, Duster& duster, const size_t ticks) const {
 
     for (size_t i = 0; i < ticks; ++i) {
-        move(balls);
+        move(balls, duster);
         collideWithBox(balls);
-        collideBalls(balls);
+        collideBalls(balls, duster);
     }
 }
 
-void Physics::collideBalls(std::vector<Ball>& balls) const {
+void Physics::collideBalls(std::vector<Ball>& balls, Duster& duster) const {
     for (auto a = balls.begin(); a != balls.end(); ++a) {
         for (auto b = std::next(a); b != balls.end(); ++b) {
             if (a->isCollidable() && b->isCollidable()) {
@@ -31,7 +33,7 @@ void Physics::collideBalls(std::vector<Ball>& balls) const {
                     collisionDistance * collisionDistance;
 
                 if (distanceBetweenCenters2 < collisionDistance2) {
-                    processCollision(*a, *b, distanceBetweenCenters2);
+                    processCollision(*a, *b, duster, distanceBetweenCenters2);
                 }
             }
         }
@@ -61,16 +63,21 @@ void Physics::collideWithBox(std::vector<Ball>& balls) const {
     }
 }
 
-void Physics::move(std::vector<Ball>& balls) const {
+void Physics::move(std::vector<Ball>& balls, Duster& duster) const {
     for (Ball& ball : balls) {
         Point newPos =
             ball.getCenter() + ball.getVelocity().vector() * timePerTick;
         ball.setCenter(newPos);
     }
+
+    // TODO: Find the place where to process dust movement: duster.processTick()
 }
 
-void Physics::processCollision(Ball& a, Ball& b,
+void Physics::processCollision(Ball& a, Ball& b, Duster& duster,
                                double distanceBetweenCenters2) const {
+    // Add collision dusts.
+    duster.addDustsOnCollision(a, b);
+
     // нормированный вектор столкновения
     const Point normal =
         (b.getCenter() - a.getCenter()) / std::sqrt(distanceBetweenCenters2);
